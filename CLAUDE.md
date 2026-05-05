@@ -10,6 +10,8 @@
 
 ## Workflows
 
+**デフォルトブランチ**: `main`
+
 - **新規実装開始**: `/start-issue <issue番号>` を使用
 - **push**: 必ず `/push` を使用（直接 `git push` 禁止）
 - **PR作成**: `gh pr create --base <ベースブランチ>` で `--base` を必ず明示指定
