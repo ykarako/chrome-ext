@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { width: 260px; font-family: sans-serif; padding: 12px; margin: 0; }
+    .origin { font-size: 11px; color: #666; word-break: break-all; margin-bottom: 8px; }
+    .row { display: flex; align-items: center; gap: 8px; }
+    input[type=range] { flex: 1; }
+    .val { width: 48px; text-align: right; font-variant-numeric: tabular-nums; }
+    button { margin-top: 10px; width: 100%; padding: 6px; }
+  </style>
+</head>
+<body>
+  <div class="origin" id="origin">―</div>
+  <div class="row">
+    <input type="range" id="vol" min="0" max="500" step="5" value="100">
+    <span class="val"><span id="valNum">100</span>%</span>
+  </div>
+  <button id="reset">100%にリセット</button>
+  <script src="popup.js"></script>
+</body>
+</html>
