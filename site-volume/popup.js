@@ -43,12 +43,15 @@ async function init() {
   try {
     const res = await chrome.tabs.sendMessage(tab.id, { type: 'GET_VOLUME' });
     if (res) {
-      const pct = Math.round(res.volume * 100);
+      const rawPct = Math.round(res.volume * 100);
+      const pct = Math.max(0, Math.min(100, rawPct));
       volEl.value = pct;
       valNumEl.textContent = pct;
       originEl.textContent = res.origin;
       reflectEnabled(res.enabled !== false);
       debugEl.textContent = fmtDebug(res);
+      // 旧バージョンで >100% が保存されていた場合は 100% に正規化
+      if (rawPct !== pct) send(pct);
     }
   } catch {
     originEl.textContent = '(このページでは動作しません)';
