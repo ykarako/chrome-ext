@@ -7,13 +7,18 @@
     .origin { font-size: 11px; color: #666; word-break: break-all; margin-bottom: 4px; }
     .debug { font-size: 10px; color: #888; margin-bottom: 8px; white-space: pre-wrap; }
     .row { display: flex; align-items: center; gap: 8px; }
+    .toggle { margin-bottom: 8px; font-size: 12px; }
+    .toggle input { margin-right: 6px; vertical-align: middle; }
     input[type=range] { flex: 1; }
+    input[type=range]:disabled { opacity: 0.4; }
     .val { width: 48px; text-align: right; font-variant-numeric: tabular-nums; }
     button { margin-top: 10px; width: 100%; padding: 6px; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
   </style>
 </head>
 <body>
   <div class="origin" id="origin">―</div>
+  <label class="toggle"><input type="checkbox" id="enabled" checked>このサイトで有効化</label>
   <div class="debug" id="debug"></div>
   <div class="row">
     <input type="range" id="vol" min="0" max="500" step="5" value="100">
